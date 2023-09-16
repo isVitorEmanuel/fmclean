@@ -101,12 +101,15 @@ end
 theorem impl_as_contrapositive :
   (P → Q) → (¬Q → ¬P)  :=
 begin
-  sorry,
+  intros PinQ notQ P,
+  have hQ : Q := PinQ P,
+  contradiction,
 end
 
 theorem impl_as_contrapositive_converse :
   (¬Q → ¬P) → (P → Q)  :=
 begin
+  intros notQinnotP P,
   sorry,
 end
 
