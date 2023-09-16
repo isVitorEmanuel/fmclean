@@ -11,13 +11,18 @@ variables P Q R : Prop
 theorem doubleneg_intro :
   P → ¬¬P  :=
 begin
-  sorry,
+  intros P notP,
+  apply notP,
+  exact P,
 end
 
 theorem doubleneg_elim :
   ¬¬P → P  :=
 begin
-  sorry,
+  intro notnotP,
+  by_contradiction p,
+  apply notnotP,
+  contradiction,
 end
 
 theorem doubleneg_law :
