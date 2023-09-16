@@ -28,7 +28,11 @@ end
 theorem doubleneg_law :
   ¬¬P ↔ P  :=
 begin
-  sorry,
+   split, {
+    exact doubleneg_elim P,
+  }, {
+    exact doubleneg_intro P,
+  }
 end
 
 ------------------------------------------------
