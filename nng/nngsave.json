@@ -164,19 +164,23 @@
     },
     {
       "lean": "example (P Q R : Type) : (P → (Q → R)) → ((P → Q) → (P → R)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro pinqinr,\r\nintro pinq,\r\nintro p,\r\nhave q := pinq(p),\r\nhave r := pinqinr(p),\r\nexact r(q),\r\n"
     },
     {
       "lean": "example (P Q F : Type) : (P → Q) → ((Q → F) → (P → F)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro pinq,\r\nintro qinf,\r\nintro p,\r\nhave q := pinq(p),\r\nexact qinf(q),\r\n"
     },
     {
       "lean": "example (P Q : Type) : (P → Q) → ((Q → empty) → (P → empty)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intros pq qe p,\r\napply qe,\r\nexact pq(p),\r\n"
     },
     {
       "lean": "example (A B C D E F G H I J K L : Type)\n(f1 : A → B) (f2 : B → E) (f3 : E → D) (f4 : D → A) (f5 : E → F)\n(f6 : F → C) (f7 : B → C) (f8 : F → G) (f9 : G → J) (f10 : I → J)\n(f11 : J → I) (f12 : I → H) (f13 : E → H) (f14 : H → K) (f15 : I → L)\n : A → L :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro a,\r\nhave b := f1(a),\r\nhave e := f2(b),\r\nhave f := f5(e),\r\nhave g := f8(f),\r\nhave j := f9(g),\r\nhave i := f11(j),\r\nexact f15(i),"
     },
     {
       "lean": "example (P Q : Prop) (p : P) (h : P → Q) : Q :=\n",
