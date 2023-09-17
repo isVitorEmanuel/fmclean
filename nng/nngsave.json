@@ -244,15 +244,18 @@
     },
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro pq,\r\nintro qr,\r\nsplit,\r\n  intro p,\r\n  cases pq with pq qp,\r\n  cases qr with qr rq,\r\n  have q := pq(p),\r\n  exact qr(q),\r\n\r\n  intro r,\r\n  cases pq with pq qp,\r\n  cases qr with qr rq,\r\n  have q := rq(r),\r\n  exact qp(q),\r\n"
     },
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro pq,\r\nintro qr,\r\nsplit,\r\n  intro p,\r\n  cases pq with pq qp,\r\n  cases qr with qr rq,\r\n  have q := pq(p),\r\n  exact qr(q),\r\n\r\n  intro r,\r\n  cases pq with pq qp,\r\n  cases qr with qr rq,\r\n  have q := rq(r),\r\n  exact qp(q),\r\n"
     },
     {
       "lean": "example (P Q : Prop) : Q → (P ∨ Q) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro q,\r\nright,\r\nexact q,\r\n"
     },
     {
       "lean": "lemma or_symm (P Q : Prop) : P ∨ Q → Q ∨ P :=\n",
