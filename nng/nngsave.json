@@ -139,23 +139,28 @@
     },
     {
       "lean": "example (P Q : Type) (p : P) (h : P → Q) : Q :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "exact h(p),\r\n"
     },
     {
       "lean": "example : mynat → mynat :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro n,\r\nexact 3*n+2,\r\n"
     },
     {
       "lean": "example (P Q R S T U: Type)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "have q := h(p),\r\nhave t := j(q),\r\nhave u := l(t),\r\nexact u,"
     },
     {
       "lean": "example (P Q R S T U: Type)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "have q := h(p),\r\nhave t := j(q),\r\nhave u := l(t),\r\nexact u,"
     },
     {
       "lean": "example (P Q : Type) : P → (Q → P) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro p,\r\nintro q,\r\nexact p,"
     },
     {
       "lean": "example (P Q R : Type) : (P → (Q → R)) → ((P → Q) → (P → R)) :=\n",
