@@ -259,19 +259,23 @@
     },
     {
       "lean": "lemma or_symm (P Q : Prop) : P ∨ Q → Q ∨ P :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro pq,\r\ncases pq with p q,\r\n  right,\r\n  exact p,\r\n\r\n  left,\r\n  exact q,\r\n\r\n"
     },
     {
       "lean": "lemma and_or_distrib_left (P Q R : Prop) : P ∧ (Q ∨ R) ↔ (P ∧ Q) ∨ (P ∧ R) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "split,\r\nintro pqr,\r\n  cases pqr with p qr,\r\n  cases qr with q r,\r\n    left,\r\n      split,\r\n        exact p,\r\n        exact q,\r\n    right,\r\n      split,\r\n        exact p,\r\n        exact r,\r\nintro pqpr,\r\n  split,\r\n    cases pqpr with pq pr,\r\n      cases pq with p q,\r\n        exact p,\r\n      cases pr with p r,\r\n        exact p,\r\n    cases pqpr with pq pr,\r\n      cases pq with p q,\r\n        left,\r\n        exact q,\r\n      cases pr with p r,\r\n        right,\r\n        exact r,\r\n\r\n\r\n\r\n    "
     },
     {
       "lean": "lemma contra (P Q : Prop) : (P ∧ ¬ P) → Q :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro pnp,\r\ncases pnp with p np,\r\nexfalso,\r\nexact np(p),\r\n"
     },
     {
       "lean": "lemma contrapositive2 (P Q : Prop) : (¬ Q → ¬ P) → (P → Q) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "by_cases p : P; by_cases q : Q,\r\nintros nqnp p,\r\n  exact q,\r\nintros nqnp p,\r\n  exfalso,\r\n  have np := nqnp(q),\r\n  exact np(p),\r\nintros nqnp p,\r\n  exact q,\r\nintros nqnp p,\r\n  exfalso,\r\n  have np := nqnp(q),\r\n  exact np(p),\r\n"
     },
     {
       "lean": "theorem succ_inj' {a b : mynat} (hs : succ(a) = succ(b)) :  a = b := \n",
