@@ -319,23 +319,28 @@
     },
     {
       "lean": "theorem succ_ne_zero (a : mynat) : succ a ≠ 0 := \n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "symmetry,\r\nexact zero_ne_succ a,\r\n"
     },
     {
       "lean": "lemma add_left_eq_zero {{a b : mynat}} (H : a + b = 0) : b = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "cases b with hi,\r\n  refl,\r\n\r\n  rw add_succ at H,\r\n  exfalso,\r\n  contradiction,\r\n\r\n"
     },
     {
       "lean": "lemma add_right_eq_zero {a b : mynat} : a + b = 0 → a = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro hi,\r\nrw add_comm at hi,\r\nexact add_left_eq_zero hi,\r\n\r\n"
     },
     {
       "lean": "theorem add_one_eq_succ (d : mynat) : d + 1 = succ d :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "apply succ_eq_add_one d,\r\n"
     },
     {
       "lean": "lemma ne_succ_self (n : mynat) : n ≠ succ n :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro s,\r\ninduction n with d hip,\r\n  rw succ_eq_add_one at s,\r\n  contradiction,\r\n\r\n  have d := succ_inj(s),\r\n  exact hip(d),\r\n\r\n  \r\n  \r\n\r\n"
     },
     {
       "lean": "theorem mul_pos (a b : mynat) : a ≠ 0 → b ≠ 0 → a * b ≠ 0 :=\n",
