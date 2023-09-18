@@ -364,31 +364,38 @@
     },
     {
       "lean": "lemma one_add_le_self (x : mynat) : x ≤ 1 + x :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add,\r\nuse 1,\r\nrw add_comm x 1,\r\n\r\n"
     },
     {
       "lean": "lemma le_refl (x : mynat) : x ≤ x :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add,\r\nuse 0,\r\nrw add_zero,\r\nrefl,"
     },
     {
       "lean": "theorem le_succ (a b : mynat) : a ≤ b → a ≤ (succ b) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add,\r\nintro hip,\r\ncases hip with d bad,\r\n  rw le_iff_exists_add,\r\n  use succ d,\r\n  rw add_succ,\r\n  have sbad := succ_eq_succ_of_eq(bad),\r\n  exact sbad,\r\n"
     },
     {
       "lean": "lemma zero_le (a : mynat) : 0 ≤ a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add,\r\nuse a,\r\nrw zero_add,\r\nrefl,\r\n"
     },
     {
       "lean": "theorem le_trans (a b c : mynat) (hab : a ≤ b) (hbc : b ≤ c) : a ≤ c :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add,\r\nrw le_iff_exists_add at hab,\r\nrw le_iff_exists_add at hbc,\r\ncases hab with q baq,\r\ncases hbc with r cbr,\r\nrw baq at cbr,\r\nrw add_assoc at cbr,\r\nuse (q + r),\r\nexact(cbr),"
     },
     {
       "lean": "theorem le_antisymm (a b : mynat) (hab : a ≤ b) (hba : b ≤ a) : a = b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add at hab,\r\nrw le_iff_exists_add at hba,\r\ncases hab with q baq,\r\ncases hba with r abr,\r\nrw baq at abr,\r\nsymmetry at baq abr,\r\nrw add_assoc at abr,\r\nhave hip := eq_zero_of_add_right_eq_self abr,\r\nhave hiphip := add_right_eq_zero hip,\r\nrw hiphip at baq,\r\nrw add_zero at baq,\r\nexact baq,\r\n"
     },
     {
       "lean": "lemma le_zero (a : mynat) (h : a ≤ 0) : a = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add at h,\r\ncases h with q aq,\r\nsymmetry at aq,\r\nhave qa := add_right_eq_zero aq,\r\nexact qa,\r\n"
     },
     {
       "lean": "lemma succ_le_succ (a b : mynat) (h : a ≤ b) : succ a ≤ succ b :=\n",
