@@ -399,19 +399,23 @@
     },
     {
       "lean": "lemma succ_le_succ (a b : mynat) (h : a ≤ b) : succ a ≤ succ b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "cases h with t bat,\r\nrw le_iff_exists_add,\r\nuse t,\r\nrw bat,\r\nrw succ_add,\r\nrefl,\r\n"
     },
     {
       "lean": "theorem le_total (a b : mynat) : a ≤ b ∨ b ≤ a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with d hip,\r\nright,\r\napply zero_le,\r\n\r\ncases hip with ad da,\r\n  left,\r\n  apply le_succ,\r\n  exact ad,\r\n\r\n  cases da with t adt,\r\n  cases t,\r\n  rw add_zero at adt,\r\n  left,\r\n  apply le_succ,\r\n  use 0,\r\n  rw add_zero,\r\n  symmetry at adt,\r\n  exact adt,\r\n\r\n  right,\r\n  use t,\r\n  rw add_succ at adt,\r\n  rw succ_add,\r\n  exact adt,\r\n\r\n  \r\n\r\n\r\n\r\n\r\n"
     },
     {
       "lean": "lemma le_succ_self (a : mynat) : a ≤ succ a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "use 1,\r\nrw succ_eq_add_one,\r\nrefl,\r\n"
     },
     {
       "lean": "theorem add_le_add_right {a b : mynat} : a ≤ b → ∀ t, (a + t) ≤ (b + t) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intros ab t,\r\nrw le_iff_exists_add,\r\nrw le_iff_exists_add at ab,\r\ncases ab with n ban,\r\nuse n,\r\nrw ban,\r\nsimp,\r\n\r\n\r\n"
     },
     {
       "lean": "theorem le_of_succ_le_succ (a b : mynat) : succ a ≤ succ b → a ≤ b :=\n",
