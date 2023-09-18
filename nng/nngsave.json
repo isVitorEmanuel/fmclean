@@ -344,15 +344,18 @@
     },
     {
       "lean": "theorem mul_pos (a b : mynat) : a ≠ 0 → b ≠ 0 → a * b ≠ 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intros a0 b0 ab,\r\ncases a,\r\n  contradiction,\r\n\r\n  rw succ_mul at ab,\r\n  have b := add_left_eq_zero(ab),\r\n  contradiction,\r\n"
     },
     {
       "lean": "theorem eq_zero_or_eq_zero_of_mul_eq_zero (a b : mynat) (h : a * b = 0) :\n  a = 0 ∨ b = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "cases a with,\r\n  rw zero_mul at h,\r\n  left,\r\n  exact h,\r\n\r\n  rw succ_mul at h,\r\n  have z := add_left_eq_zero(h),\r\n  right,\r\n  exact z,\r\n  \r\n  \r\n  "
     },
     {
       "lean": "theorem mul_eq_zero_iff (a b : mynat): a * b = 0 ↔ a = 0 ∨ b = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "split,\r\nintro ab,\r\n  apply eq_zero_or_eq_zero_of_mul_eq_zero,\r\n  exact ab,\r\nintro ab,\r\n  cases ab with a0 b0,\r\n    rw a0,\r\n    rw zero_mul,\r\n    refl,\r\n\r\n    rw b0,\r\n    rw mul_zero,\r\n    refl,\r\n"
     },
     {
       "lean": "theorem mul_left_cancel (a b c : mynat) (ha : a ≠ 0) : a * b = a * c → b = c :=\n",
