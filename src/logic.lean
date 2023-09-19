@@ -137,7 +137,13 @@ end
 theorem lem_irrefutable :
   ¬¬(P∨¬P)  :=
 begin
-  sorry,
+  intro npp,
+  apply npp,
+  right,
+  intro p,
+  apply npp,
+  left,
+  exact p,
 end
 
 
