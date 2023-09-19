@@ -419,15 +419,18 @@
     },
     {
       "lean": "theorem le_of_succ_le_succ (a b : mynat) : succ a ≤ succ b → a ≤ b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro sasb,\r\ncases sasb with p sbsap,\r\ncases p with u,\r\n  rw add_zero at sbsap,\r\n  use 0,\r\n  rw add_zero,\r\n  apply succ_inj,\r\n  exact sbsap,\r\nuse succ u,\r\nrw succ_add at sbsap,\r\napply succ_inj,\r\nexact sbsap,\r\n"
     },
     {
       "lean": "theorem not_succ_le_self (a : mynat) : ¬ (succ a ≤ a) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro aa,\r\ncases aa with n aan,\r\ncases n with x,\r\n  rw add_zero at aan,\r\n  apply ne_succ_self a aan,\r\n\r\n  rw succ_add at aan,\r\n  rw ← add_succ at aan,\r\n  symmetry at aan,\r\n  have ssx := eq_zero_of_add_right_eq_self(aan),\r\n  apply succ_ne_zero(succ(x)),\r\n  exact ssx,\r\n\r\n  \r\n  "
     },
     {
       "lean": "theorem add_le_add_left {a b : mynat} (h : a ≤ b) (t : mynat) :\n  t + a ≤ t + b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw add_comm,\r\nrw add_comm t b,\r\nhave atb := add_le_add_right(h),\r\nexact atb(t),\r\n"
     },
     {
       "lean": "lemma lt_aux_one (a b : mynat) : a ≤ b ∧ ¬ (b ≤ a) → succ a ≤ b :=\n",
