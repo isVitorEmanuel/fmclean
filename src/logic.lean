@@ -109,14 +109,24 @@ end
 theorem impl_as_contrapositive_converse :
   (¬Q → ¬P) → (P → Q)  :=
 begin
-  intros notQinnotP P,
-  sorry,
+  intros notQinnotP p,
+  by_cases nQ : Q,{
+    exact nQ,
+  }, {
+    by_contradiction,
+    have nP : ¬P := notQinnotP(nQ),
+    apply nP(p),
+  }
 end
 
 theorem contrapositive_law :
   (P → Q) ↔ (¬Q → ¬P)  :=
 begin
-  sorry,
+  split,{
+    apply impl_as_contrapositive P Q,
+  }, {
+    apply impl_as_contrapositive_converse P Q,
+  }
 end
 
 
