@@ -154,7 +154,13 @@ end
 theorem peirce_law_weak :
   ((P → Q) → P) → ¬¬P  :=
 begin
-  sorry,
+  intros pqp nnp,
+  apply nnp,
+  apply pqp,
+  intro p,
+  exfalso,
+  have n : false := nnp(p),
+  exact n,
 end
 
 
