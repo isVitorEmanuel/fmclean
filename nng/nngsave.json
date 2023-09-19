@@ -434,15 +434,18 @@
     },
     {
       "lean": "lemma lt_aux_one (a b : mynat) : a ≤ b ∧ ¬ (b ≤ a) → succ a ≤ b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro abba,\r\ncases abba with ab nba,\r\ncases ab with a baa,\r\ncases a with m,\r\n  exfalso,\r\n  apply nba,\r\n  use 0,\r\n  rw add_zero,\r\n  rw add_zero at baa,\r\n  symmetry,\r\n  exact baa,\r\n\r\n  use m,\r\n  rw add_succ at baa,\r\n  rw succ_add,\r\n  exact baa,\r\n\r\n"
     },
     {
       "lean": "lemma lt_aux_two (a b : mynat) : succ a ≤ b → a ≤ b ∧ ¬ (b ≤ a) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro ab,\r\nsplit,\r\n  cases ab with m bam,\r\n  use succ m,\r\n  rw succ_add at bam,\r\n  rw add_succ,\r\n  exact bam,\r\n\r\n  intro nba,\r\n  have saa := le_trans (succ a) b a ab nba,\r\n  have neg := not_succ_le_self a saa,\r\n  contradiction,\r\n"
     },
     {
       "lean": "lemma lt_iff_succ_le (a b : mynat) : a < b ↔ succ a ≤ b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "split,\r\nhave hi := lt_aux_one a b,\r\nexact(hi),\r\nhave hi_i := lt_aux_two a b,\r\nexact(hi_i),\r\n"
     }
   ]
 }
