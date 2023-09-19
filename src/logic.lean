@@ -575,37 +575,61 @@ end
 theorem exists_as_neg_forall :
   (∃x, P x) → ¬(∀x, ¬P x)  :=
 begin
-  sorry,
+  intros Eu Au,
+  cases Eu with u Pu,
+  apply Au(u),
+  exact Pu,
 end
 
 theorem forall_as_neg_exists :
   (∀x, P x) → ¬(∃x, ¬P x)  :=
 begin
-  sorry,
+  intros Au Eu,
+  cases Eu with u Pu,
+  have nPu : P u := Au(u),
+  contradiction,
 end
 
 theorem forall_as_neg_exists_converse :
   ¬(∃x, ¬P x) → (∀x, P x)  :=
 begin
-  sorry,
+  intros nEu u,
+  by_contradiction nPu,
+  apply nEu,
+  existsi u,
+  exact nPu,
 end
 
 theorem exists_as_neg_forall_converse :
   ¬(∀x, ¬P x) → (∃x, P x)  :=
 begin
-  sorry,
+  intro nAu,
+  by_contradiction nEu,
+  apply nAu,
+  intros u Pu,
+  apply nEu,
+  existsi u,
+  exact Pu,
 end
 
 theorem forall_as_neg_exists_law :
   (∀x, P x) ↔ ¬(∃x, ¬P x)  :=
 begin
-  sorry,
+  split, {
+    apply forall_as_neg_exists,
+  }, {
+    apply forall_as_neg_exists_converse,
+  }
 end
 
 theorem exists_as_neg_forall_law :
   (∃x, P x) ↔ ¬(∀x, ¬P x)  :=
 begin
-  sorry,
+  split, {
+    apply exists_as_neg_forall,
+  }, {
+    apply exists_as_neg_forall_converse,
+  }
 end
 
 
